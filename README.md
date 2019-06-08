@@ -17,9 +17,11 @@ Also see my [SDCC STM8 CMake configuration blogpost](https://techoverflow.net/20
 
 *Note:* This repo was tested with SDCC 3.5.x on Ubuntu 18.04. If you really need to use older SDCC versions and they don't work, please submit a bug report or preferably a pull request.
 
-First, you need to  create your `stm8s_conf.h` in your own code directory, in which you need to configure the correct STM8S variant etc. Copy `stm8s_conf_template_h` from this repository.
+Add `STM8S-SDCC-SPL/conf` and `STM8S-SDCC-SPL/inc` to the include path of your build system.
 
-Each function has its separate file so your resulting binary doesn't get unneccessarily large. The include files declare all functions for that module, however.
+First, you need to define your STM8S model using the preprocessor. I recommend using a flag like `-DSTM8S105`. See `conf/stm8s_conf.h` for all the available models.
+
+Each function has its separate file so your resulting binary doesn't get unneccessarily large. The include files declare all functions for that module, however, and `stm8s.h`.
 So in order to use e.g. `CLK_HSIPrescalerConfig()`, you need to include `stm8s_clk.h` and compile in `stm8s_clk_HSIPrescalerConfig.c`.
 
 The best way to use this library is to compile a library from all the source files and then link that library in SDCC. SDCC will only pull in what functions it needs.
