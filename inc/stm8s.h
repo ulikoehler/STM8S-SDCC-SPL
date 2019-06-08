@@ -2784,12 +2784,15 @@ CFG_TypeDef;
 #ifdef _SDCC_
  #define INTERRUPT_HANDLER(a,b) void a() __interrupt(b)
 
- /* traps require >=v3.4.3 */
- #if SDCC_VERSION >= 30403
+ /*
+ * traps require >=v3.4.3
+ * disabled by @ulikoehler since the check fails for SDCC 3.5.x
+ */
+ /*#if SDCC_VERSION >= 30403
    #define INTERRUPT_HANDLER_TRAP(a) void a() __trap 
  #else
    #error traps require SDCC >=3.4.3. Please update!
- #endif 
+ #endif*/
 
 #endif /* _SDCC_ */
 

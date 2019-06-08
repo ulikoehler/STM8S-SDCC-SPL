@@ -1,5 +1,7 @@
 # STM8S-SDCC-SPL
-STM8S Standard peripheral library for SDCC, split into individual files for small binaries. 
+STM8S Standard peripheral library for SDCC, split into individual files for small binaries.
+
+*Note:* SDCC 3.4.3+ is required!
 
 This work is heavily based on [STM8-SPL-SDCC](https://github.com/ulikoehler/STM8S-SDCC-SPL), intending to fix the following issues with it:
 
